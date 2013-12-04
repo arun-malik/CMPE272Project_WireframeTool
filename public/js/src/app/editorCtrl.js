@@ -479,13 +479,16 @@ agidoMockups.controller("EditorCtrl", ["$scope", "$timeout", "$window", "$compil
         //     selected.push($(this).attr('id'));
         // });  
 
-       var selected =  $('#draggable').find('input[type="checkbox"]');
-       for(var i=0; i<selected.length; i++)
-        {
-            if(selected[i].checked)
+       //var selected =  $('#draggable').find('input[type="checkbox"]');
+       var selected =  $('#userEmail').val();
+       //for(var i=0; i<selected.length; i++)
+        //{
+            if(selected != "")
             {
-                var data = { projectId : $("#projectId").val(), projectName : $("#projectName").val() , user : selected[i].defaultValue};
-
+                var emails = selected.split(",");
+                for(var i=0; i<emails.length;i++) {
+                var data = { projectId : $("#projectId").val(), projectName : $("#projectName").val() , user : emails[i]};
+                debugger;
                 $.ajax({
                       type: "POST",
                       url: "/api/projects/addUser",
@@ -499,8 +502,27 @@ agidoMockups.controller("EditorCtrl", ["$scope", "$timeout", "$window", "$compil
                         console.log("Saved",json)},
                       dataType: "json"
                     });
+                 var maildata = {
+                         to: emails[i],
+                         message: 'Artifact '+ $("#projectName").val()+' shared by user: '
+                 }
+                $.ajax({  
+                    type: "POST",  
+                    url: "/api/email",  
+                    data: maildata,  
+                    success: function() { 
+
+                        debugger;
+                        //$window.alert("Sharing Successfull") ;
+                        console.log('mail sent');
+                    },
+                    fail: function(){
+                        //$window.alert("Sharing unsuccessfull");
+                        console.log("Saved",json)}  
+                });    
+                }
             }
-        }
+        //}
 
              
         // var childs =  $( "#draggable" ).children();

@@ -8,7 +8,6 @@
 var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
-//var editor = require('./routes/editor');
 var project = require('./routes/project');
 var comment = require('./routes/comment');
 //var artifact = require('./routes/artifact');
@@ -16,6 +15,7 @@ var http = require('http');
 var path = require('path');
 var pass = require('./config/passport');
 var passport = require('passport');
+var email = require('./routes/email');
 
 
 // Declare mongoose
@@ -73,9 +73,9 @@ app.get('/logout', function(req, res){
 });
 
 
- //var routes = require('./routes');
-app.get('/',routes.index);
-//app.get('/editor', editor.show);
+ var routes = require('./routes');
+// exports.index
+app.get('/', routes.index);
 
 app.get('/api/users', user.list);
 app.get('/api/users/:id', user.show);
@@ -90,6 +90,7 @@ app.post('/api/projects/addUser', project.addUser);
 app.get('/api/comments', comment.list);
 app.get('/api/comments/:id', comment.show);
 app.post('/api/comments', comment.post);
+app.post('/api/email',email.post);
 
 // app.get('/api/artifacts', artifact.list);
 // app.get('/api/artifacts/:id', artifact.show);
