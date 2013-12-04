@@ -656,7 +656,7 @@ agidoMockups.controller("EditorCtrl", ["$scope", "$timeout", "$window", "$compil
             var pom = document.createElement('a');
 //            replace is a hack to force file download in firefox
             pom.setAttribute('href', data.replace(/^data:image\/[^;]/, 'data:application/octet-stream'));
-            pom.setAttribute('download', "AgidoMockup.png");
+            pom.setAttribute('download', $("#projectName").val()+'.png');
             pom.setAttribute('style', "display:none");
             document.body.appendChild(pom);
             pom.click();
@@ -856,6 +856,8 @@ agidoMockups.controller("EditorCtrl", ["$scope", "$timeout", "$window", "$compil
                 $scope.stage.clear();
                 $('#showArtifacts').hide();
                 $('#shareButton').hide();
+                $('#email').val("");
+                $('#password').val("");
         }  
       });
     };  

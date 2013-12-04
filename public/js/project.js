@@ -4,10 +4,10 @@ $(document).ready(function(){
 
 //$.doImportJSON('/src/app/editorCtrl.doImportJSON.js');
 
-  $('#logoutMenu').hide();
+  /*$('#logoutMenu').hide();
   $('#showArtifacts').hide();
   $('#shareButton').hide();
-
+*/
   $('.error').hide();
 
     $("#registerButton").click(function() {  
@@ -48,10 +48,11 @@ $(document).ready(function(){
           $('#message').append("<img id='checkmark' src='images/check.png'/>");
         });*/  
         $('#register').modal('hide');
-        $('#loginMenu').hide();
-        $('#logoutMenu').show();
-        $('#showArtifacts').show();
-        $('#shareButton').show();
+        //$("#login").modal('show');
+        $('#loginMenu').show();
+       // $('#logoutMenu').show();
+        // $('#showArtifacts').show();
+        // $('#shareButton').show();
       }  
     });  
     return false;   

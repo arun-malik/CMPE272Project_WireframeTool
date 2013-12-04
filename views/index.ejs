@@ -117,8 +117,8 @@
                         <li>
                             <button ng-click="clearStage()" type="button" class="btn btn-default navbar-btn" id="clearButton">Clear All</button>
                         </li>
-                        <li>
-                             <button type="button" data-toggle="modal" data-target="#shareUser" class="btn btn-default navbar-btn" id="shareButton">Share</button>
+                        <li  id="shareButton" <% if(!user){ %> style="display: none;" <%}%>>
+                           <button type="button" data-toggle="modal" data-target="#shareUser" class="btn btn-default navbar-btn" >Share</button>
                         </li>
                         <li id="showArtifacts" <% if(!user){ %> style="display: none;" <%}%>>
                           <form class="navbar-form navbar-left">
