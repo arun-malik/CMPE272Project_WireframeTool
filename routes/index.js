@@ -3,5 +3,6 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Wireframe Web App',user:req.user });
+  //res.render('index');
+   res.render('index', { title: 'CMPE 272',user:req.user });
 };

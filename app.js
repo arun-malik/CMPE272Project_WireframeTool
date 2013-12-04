@@ -8,6 +8,7 @@
 var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
+//var editor = require('./routes/editor');
 var project = require('./routes/project');
 var comment = require('./routes/comment');
 //var artifact = require('./routes/artifact');
@@ -72,9 +73,9 @@ app.get('/logout', function(req, res){
 });
 
 
- var routes = require('./routes');
-// exports.index
-app.get('/', routes.index);
+ //var routes = require('./routes');
+app.get('/',routes.index);
+//app.get('/editor', editor.show);
 
 app.get('/api/users', user.list);
 app.get('/api/users/:id', user.show);

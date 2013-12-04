@@ -117,8 +117,8 @@
                         <li>
                             <button ng-click="clearStage()" type="button" class="btn btn-default navbar-btn" id="clearButton">Clear All</button>
                         </li>
-                        <li>
-                             <button type="button" ng-click="shareUser()" data-toggle="modal" data-target="#shareUser" class="btn btn-default navbar-btn" id="shareButton">Share</button>
+                        <li  id="shareButton" <% if(!user){ %> style="display: none;" <%}%>>
+                             <button type="button" ng-click="shareUser()" data-toggle="modal" data-target="#shareUser" class="btn btn-default navbar-btn" >Share</button>
                         </li>
                         <li id="showArtifacts" <% if(!user){ %> style="display: none;" <%}%>>
                           <form class="navbar-form navbar-left">
@@ -357,7 +357,7 @@
         </div><!-- End of horizonal form -->
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#register">Register</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="loginCancel">Cancel</button>
           <button type="button" class="btn btn-primary" id="loginButton">Login</button>
         </div>
       </div><!-- /.modal-content -->
