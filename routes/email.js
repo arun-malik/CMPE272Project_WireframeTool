@@ -12,7 +12,7 @@ exports.post  = function(req, res) {
       });
 
  server.send({
-          text: message+''+req.user.name+'. Please login to collaboration at http://heroku.com to view the artifact.',
+          text: message+''+req.user.name+'. Please login to collaborative cloud wireframe tool  to view the artifact.',
           from:"Collaboration Tie In <donNotReply@mail.com>",
           to:to,
           subject:"Collaboration Artifact Shared"
